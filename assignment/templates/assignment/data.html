@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <ul class="list-group container mt-2">
+    {% for data in datas %}
+        <a href="{% url 'data_view_detail' data.pk %}"><li class="list-group-item">{{ data.title }} <small class="badge badge-success">Digitized</small></li></a>
+    {% endfor %}
+    </ul>
+    <center><a href="{% url 'index' %}" class='btn btn-success'>Back</a></center>
+{% endblock %}

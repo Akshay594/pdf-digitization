@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mr-2 mt-5">
+{% for message in messages %}
+<h3>{{ message }}</h3>
+{% endfor %}
+<h1>Adcuratio Assignment</h1>
+<h3>File being digitized: {{ path }}</h3>
+
+
+<form method="post" enctype="multipart/form-data">
+{% csrf_token %}
+{{ form }}
+<button type="submit">Upload</button>
+</form>
+
+{% if uploaded_file_url %}
+<p>File uploaded at: <a href="{{ uploaded_file_url }}">{{ uploaded_file_url }}</a></p>
+{% endif %}
+<br><br>
+<a href="{% url 'data_view' %}">Digitized Data</a>
+{% endblock %}
+</div>
